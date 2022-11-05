@@ -10,7 +10,7 @@ import "./interfaces/OptimisticOracleV2Interface.sol";
 // This contract shows how to get up and running as quickly as posible with UMA's Optimistic Oracle.
 // We make a simple price request to the OO and return it to the user.
 
-contract OO_GettingStarted {
+contract TicketManager {
   // Create an Optimistic oracle instance at the deployed address on Görli.
   OptimisticOracleV2Interface oo = OptimisticOracleV2Interface(0xA5B9d8a0B0Fa04Ba71BDD68069661ED5C0848884);
 
