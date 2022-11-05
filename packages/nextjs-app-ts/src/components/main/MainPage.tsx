@@ -95,6 +95,7 @@ export const MainPage: NextPage<IMainPageProps> = (props) => {
   const yourContract = useAppContracts('YourContract', ethersAppContext.chainId);
   const yourNFT = useAppContracts('YourNFT', ethersAppContext.chainId);
   const mainnetDai = useAppContracts('DAI', networkDefinitions.mainnet.chainId);
+  const ticketManager = useAppContracts('TicketManager', ethersAppContext.chainId);
 
   // keep track of a variable from the contract in the local React state:
   const [purpose, update] = useContractReader(
@@ -152,6 +153,17 @@ export const MainPage: NextPage<IMainPageProps> = (props) => {
           <GenericContract
             contractName="Dai"
             contract={mainnetDai}
+            mainnetAdaptor={scaffoldAppProviders.mainnetAdaptor}
+            blockExplorer={scaffoldAppProviders.currentTargetNetwork.blockExplorer}
+          />
+        ),
+      },
+      {
+        name: 'TicketManager',
+        content: (
+          <GenericContract
+            contractName="TicketManager"
+            contract={ticketManager}
             mainnetAdaptor={scaffoldAppProviders.mainnetAdaptor}
             blockExplorer={scaffoldAppProviders.currentTargetNetwork.blockExplorer}
           />
